@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.naccl</groupId>
-    <artifactId>blog-api</artifactId>
+    <artifactId>blog-api</artifactId>-view
     <version>0.0.1</version>
     <name>blog-api</name>
     <url>https://naccl.top/</url>

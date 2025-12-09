@@ -35,3 +35,38 @@ build/
 .DS_Store
 /blog-cms-tmp
 package-lock.json
+
+
+
+### Docker 相关 ###
+mysql-data/          # MySQL 数据目录
+redis-data/          # Redis 数据目录
+*.sock               # Unix 套接字文件
+*.pid                # 进程ID文件
+
+### 数据库配置文件 ###
+*.properties         # 包含敏感信息的配置文件
+*.yml                # 包含敏感信息的配置文件
+*.yaml               # 包含敏感信息的配置文件
+application-*.yml    # 特定环境的配置文件
+application-*.yaml   # 特定环境的配置文件
+
+### 日志文件 ###
+logs/                # 日志目录
+*.log                # 日志文件
+*.log.*              # 日志归档文件
+
+### 临时文件 ###
+temp/                # 临时文件目录
+tmp/                 # 临时文件目录
+
+### 环境变量文件 ###
+.env                 # 环境变量文件（通常包含敏感信息）
+.env.local          # 本地环境变量
+.env.*.local        # 特定环境本地变量
+
+
+*.log
+*.hprof
+*.orig
+*~
