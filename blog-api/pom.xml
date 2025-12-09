@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>top.naccl</groupId>
-    <artifactId>blog-api</artifactId>-view
+    <artifactId>blog-api</artifactId>
     <version>0.0.1</version>
     <name>blog-api</name>
     <url>https://naccl.top/</url>
@@ -162,12 +162,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
