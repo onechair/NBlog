@@ -1,0 +1,41 @@
+services:
+  # MySQL 数据库
+  mysql:
+    image: mysql:5.7
+    container_name: blog-mysql
+    restart: always
+    # 必须暴露端口，本地代码才能连接 localhost:3306
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # 对应你代码中的 spring.datasource.password
+      MYSQL_DATABASE: nblog
+      TZ: Asia/Shanghai
+    command:
+      # 确保字符集为 utf8mb4 以支持 Emoji
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      # 初始化脚本：请确保当前目录下有 blog-api/nblog.sql 文件
+      # 如果你的 sql 文件在其他位置，请修改冒号前的路径
+      - ./blog-api/nblog.sql:/docker-entrypoint-initdb.d/nblog.sql
+    networks:
+      - blog-network
+
+  # Redis 缓存
+  redis:
+    image: redis:6.2-alpine
+    container_name: blog-redis
+    restart: always
+    # 必须暴露端口，本地代码才能连接 localhost:6379
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    networks:
+      - blog-network
+
+networks:
+  blog-network:
+    driver: bridge
